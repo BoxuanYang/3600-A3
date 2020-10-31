@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Solution {
+public class A3_u6778195 {
     private static int B;
     private static int n;
     private static ArrayList<Integer>[] salaries;
@@ -58,7 +58,7 @@ public class Solution {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        String fileName = args[0];
+        String fileName = "test1.txt";
         readFile(fileName);
 
         testResult(fileName.charAt(4) - '0');
@@ -75,19 +75,19 @@ public class Solution {
                 int best = Integer.MIN_VALUE;
 
                 for (int k = 0; k < salaries[i].size(); k++) {
-                    int salarie = salaries[i].get(k);
+                    int salary = salaries[i].get(k);
 
-                    if(j - salarie < 0)
+                    if(j - salary < 0)
                         continue;
 
 
-                    int sub = largest[i - 1][j - salarie];
+                    int sub = largest[i - 1][j - salary];
 
                     if (sub == Integer.MIN_VALUE) {
                         continue;
                     }
 
-                    best = Math.max(best, largest[i - 1][j - salarie] + salarie);
+                    best = Math.max(best, largest[i - 1][j - salary] + salary);
                 }
 
                 largest[i][j] = best;
@@ -109,20 +109,20 @@ public class Solution {
 
             for (int k = 0; k < salaries[i].size(); k++) {
 
-                int salarie = salaries[i].get(k);
+                int salary = salaries[i].get(k);
 
-                if(j - salarie < 0) {
+                if(j - salary < 0) {
                     continue;
                 }
 
-                int sub = largest[i - 1][j - salarie];
+                int sub = largest[i - 1][j - salary];
 
                 if (sub == Integer.MIN_VALUE) {
                     continue;
                 }
 
-                if(largest[i][j] == sub + salarie) {
-                    nextJ = j - salarie;
+                if(largest[i][j] == sub + salary) {
+                    nextJ = j - salary;
                     selected[i] = k;
                 }
 
