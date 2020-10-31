@@ -58,7 +58,7 @@ public class Solution {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        String fileName = args[0];
+        String fileName = "test1.txt";
         readFile(fileName);
 
         testResult(fileName.charAt(4) - '0');
